@@ -1,4 +1,4 @@
-package GroupActivity;
+package GroupProject;
 
 import java.util.Arrays;
 
@@ -6,8 +6,23 @@ public class Library{
     private Book[] books = new Book[5];
     private int bookCount = 0;
 
+    // Getter
+    public int getBookCount(){
+        return bookCount;
+    }
+
     public void addBook(Book book){
         books[bookCount++] = book;
+    }
+
+
+    public Book findById(int id){
+        for (int i = 0; i < bookCount; i++){
+            if (books[i].getId() == id){
+                return books[i];
+            }
+        }
+        return null;
     }
 
     public void displayBooks(){
@@ -28,4 +43,17 @@ public class Library{
 
         }
     }
+
+//    public void displayBorrowedBooks(User[] users) {
+//        System.out.println("Borrowed Books:");
+//        for (User user : users) {
+//            for (int i = 0; i < user.borrowedCount; i++) {
+//                Book b = user.borrowedBooks[i];
+//                if (b != null) {
+//                    System.out.println(b.title + " by " + b.author + " borrowed by " + user.name);
+//                }
+//            }
+//        }
+//    }
+
 }

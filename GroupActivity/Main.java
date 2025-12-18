@@ -1,4 +1,4 @@
-package GroupActivity;
+package GroupProject;
 
 import java.util.Scanner;
 
@@ -20,43 +20,55 @@ public class Main {
         publicLibrary.addBook(book4);
         publicLibrary.addBook(book5);
 
-        while(true){
-            System.out.println("==== Library Management System ====");
-            System.out.println(" [1] Display All Books");
-            System.out.println(" [2] Display All Available Books");
-            System.out.println(" [3] Borrow a Book");
-            System.out.println(" [4] Return a Book");
-            System.out.println(" [5] Display Borrowed Books");
-            System.out.println(" [6] Exit");
-            System.out.println(" ==================================");
-            System.out.print("Enter choice: ");
-            int choice = scanner.nextInt();
-            switch (choice){
-                case 1: //Display all books
+        User user1 = new User(1,"Bayaw");
 
-                    //call displayBooks method to iterate contents of array Books
-                    System.out.println();
-                    publicLibrary.displayBooks();
-                    System.out.println();
-                    break;
-                case 2: //Display all available books
+            while (true) {
+                System.out.println("==== Library Management System ====");
+                System.out.println(" [1] Display All Books");
+                System.out.println(" [2] Display All Available Books");
+                System.out.println(" [3] Borrow a Book");
+                System.out.println(" [4] Return a Book");
+                System.out.println(" [5] Display Borrowed Books");
+                System.out.println(" [6] Exit");
+                System.out.println(" ==================================");
+                System.out.print("Enter choice: ");
+                int choice = scanner.nextInt();
+                switch (choice) {
+                    case 1: //Display all books
+                            //call displayBooks method to iterate contents of array Books
+                        System.out.println();
+                        publicLibrary.displayBooks();
+                        System.out.println();
+                        break;
+                    case 2: //Display all available books
 
-                    System.out.println();
-                    publicLibrary.displayAvailableBooks();
-                    System.out.println();
-                    break;
-                case 3: //Borrowing a book
-                    break;
-                case 4: //Returning a book
-                    break;
-                case 5: //Display Borrowed Books
-                    break;
-                case 6: //Exit
-                    return;
-                default:
-                    System.out.println();
-                    System.out.println("Invalid option");
-            }
+                        System.out.println();
+                        publicLibrary.displayAvailableBooks();
+                        System.out.println();
+                        break;
+                    case 3: //Borrowing a book
+
+                        System.out.println("Enter Book ID to borrow: ");
+                        int bookId = scanner.nextInt();
+                        System.out.println();
+
+                        Book book = publicLibrary.findById(bookId);
+                        user1.borrowBook(book, bookId);
+                        System.out.println();
+                        break;
+                    case 4: //Returning a book
+
+                        break;
+                    case 5: //Display Borrowed Books
+                        //publicLibrary.displayBorrowedBook();
+                        break;
+                    case 6: //Exit
+
+                        return;
+                    default:
+                        System.out.println();
+                        System.out.println("Invalid option");
+                    }
+                }
         }
     }
-}

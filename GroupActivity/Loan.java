@@ -1,4 +1,4 @@
-package GroupActivity;
+package GroupProject;
 
 public class Loan {
 }

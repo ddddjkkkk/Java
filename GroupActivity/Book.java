@@ -1,4 +1,4 @@
-package GroupActivity;
+package GroupProject;
 
 public class Book {
     private int id;
@@ -23,10 +23,12 @@ public class Book {
     public int getId(){
         return this.id;
     }
-
     public boolean isInShelf(){
         return this.inShelf;
     }
+
+    //setters
+    public void setInShelf(boolean inShelf) { this.inShelf =  inShelf;}
 
     public void bookInfo(){
         System.out.println(getTitle() + " by " + getAuthor());
