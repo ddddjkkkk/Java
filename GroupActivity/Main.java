@@ -48,12 +48,17 @@ public class Main {
                         break;
                     case 3: //Borrowing a book
 
-                        System.out.println("Enter Book ID to borrow: ");
+                        System.out.print("Enter Book ID to borrow: ");
                         int bookId = scanner.nextInt();
                         System.out.println();
 
                         Book book = publicLibrary.findById(bookId);
-                        user1.borrowBook(book, bookId);
+                        if (book != null){
+                            user1.borrowBook(book);
+                        }else{
+                            System.out.println("Sorry, we couldn’t find a book with that ID.");
+                        }
+
                         System.out.println();
                         break;
                     case 4: //Returning a book

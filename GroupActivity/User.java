@@ -31,12 +31,8 @@ public class User {
         return false;
     }
 
-    public void borrowBook(Book book, int Id) {
-        boolean IdExist = false;
-        if (book.getId() != id){
-            System.out.println("Invalid ID, please try again");
-            System.out.println();
-        }else if(borrowed > 5){
+    public void borrowBook(Book book) {
+        if(borrowed >= 5){
             System.out.println("Borrowing request failed, you reached the maximum borrowed book.");
             System.out.println();
         }else if (!book.isInShelf()){
